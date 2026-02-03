@@ -3,279 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shalu & Nirbhay | Our Story</title>
+<title>Our Story</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Playfair Display', serif;
 }
 body{
     background:#000;
     color:#fff;
-    overflow-x:hidden;
+    overflow:hidden;
 }
-.center{
+
+.scene{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-}
-section{
-    min-height:100vh;
-    padding:40px 20px;
     text-align:center;
-}
-
-/* Fade animation */
-.fade{
+    padding:20px;
     opacity:0;
-    transform:translateY(30px);
-    transition:1.2s ease;
+    transition:opacity 2s ease;
 }
-.fade.show{
+.scene.active{
     opacity:1;
-    transform:translateY(0);
+    z-index:1;
 }
 
-/* Intro */
-#intro h1{
-    font-size:1.6rem;
-    letter-spacing:2px;
-}
-
-/* Title */
-#title h1{
-    font-family:'Playfair Display', serif;
-    font-size:2.4rem;
-}
-#title p{
-    opacity:0.8;
-}
-
-/* Acts */
-.act h2{
-    font-family:'Playfair Display', serif;
-    font-size:2rem;
-    margin-bottom:15px;
-}
-.act p{
-    font-size:1.05rem;
-    line-height:1.8;
-    max-width:700px;
-    margin:auto;
-}
-
-/* PHOTO REVEAL */
-.photo-reveal{
-    position:relative;
-    max-width:320px;
-    margin:40px auto 10px;
-    overflow:hidden;
+/* Photo reveal */
+.photo{
+    width:260px;
     border-radius:20px;
-}
-.photo-reveal img{
-    width:100%;
     filter:blur(12px) brightness(0.6);
-    transform:scale(1.1);
-    transition:1.5s ease;
+    transition:2.5s ease;
 }
-.photo-reveal.show img{
+.scene.active .photo{
     filter:blur(0) brightness(1);
-    transform:scale(1);
-}
-.photo-text{
-    font-size:1rem;
-    opacity:0.85;
 }
 
-/* Proposal */
-#proposal h2{
-    font-size:2rem;
-    margin-bottom:30px;
+h1,h2,p{
+    margin:12px 0;
 }
-.buttons{
-    display:flex;
-    gap:20px;
-    justify-content:center;
-}
+h1{font-size:2rem;}
+h2{font-size:1.6rem;}
+p{font-size:1.05rem;opacity:0.85;}
+
 button{
-    padding:12px 25px;
+    margin-top:25px;
+    padding:12px 30px;
     border:none;
-    font-size:1rem;
     border-radius:30px;
+    font-size:1rem;
     cursor:pointer;
 }
-#yes{
-    background:#e91e63;
-    color:#fff;
-}
-#no{
-    background:#555;
-    color:#fff;
-    position:relative;
-}
-
-/* Celebration */
-#celebration{
-    display:none;
-}
-#celebration h1{
-    font-family:'Playfair Display', serif;
-    font-size:2.3rem;
-}
-
-/* Credits */
-#credits{
-    font-size:0.95rem;
-    line-height:2;
-    opacity:0.9;
-}
-
-/* Hearts */
-.heart{
-    position:fixed;
-    bottom:-10px;
-    font-size:20px;
-    animation:float 5s linear infinite;
-}
-@keyframes float{
-    from{transform:translateY(0);opacity:1;}
-    to{transform:translateY(-110vh);opacity:0;}
-}
+#yes{background:#e91e63;color:#fff;}
+#no{background:#444;color:#fff;position:relative;}
 </style>
 </head>
 
 <body>
 
-<!-- MUSIC -->
 <audio id="music" loop>
-  <source src="music.mp3">
+ <source src="music.mp3">
 </audio>
 
-<!-- INTRO -->
-<section id="intro" class="center">
+<div class="scene active">
     <h1>This is not a movie…</h1>
-    <h1 style="margin-top:15px;">This is our story.</h1>
-    <p style="margin-top:40px;opacity:0.6;">(Tap anywhere to begin)</p>
-</section>
+    <h1>This is our story.</h1>
+    <p>(Tap anywhere to begin)</p>
+</div>
 
-<!-- TITLE -->
-<section id="title" class="center fade">
+<div class="scene">
     <h1>Shalu & Nirbhay</h1>
     <p>A Love Beyond Every Hurdle</p>
-    <p style="margin-top:10px;">Valentine’s Day Special ❤️</p>
-</section>
+</div>
 
-<!-- ACT 1 -->
-<section class="act fade">
-    <h2>ACT I – The Beginning</h2>
-    <p>
-        We met like strangers,<br>
-        but destiny already knew the ending.
-    </p>
-</section>
+<div class="scene">
+    <h2>The Beginning</h2>
+    <p>We met like strangers…<br>but destiny already knew.</p>
+</div>
 
-<!-- PHOTO REVEAL SCENE -->
-<section class="fade">
-    <div class="photo-reveal">
-        <img src="image.jpg" alt="Our Memory">
-    </div>
-    <p class="photo-text">
-        Somewhere between moments like this…<br>
-        I realized you are my forever ❤️
-    </p>
-</section>
+<div class="scene">
+    <img src="image.jpg" class="photo">
+    <p>Some moments change everything ❤️</p>
+</div>
 
-<!-- ACT 2 -->
-<section class="act fade">
-    <h2>ACT II – The Storm</h2>
-    <p>
-        There were hurdles.<br>
-        There were moments of doubt.<br>
-        But love stayed.
-    </p>
-</section>
+<div class="scene">
+    <h2>The Promise</h2>
+    <p>No matter what comes,<br>I choose you.</p>
+</div>
 
-<!-- ACT 3 -->
-<section class="act fade">
-    <h2>ACT III – The Promise</h2>
-    <p>
-        Love is choosing each other,<br>
-        every single time.
-    </p>
-</section>
+<div class="scene">
+    <h2>Will you be my Valentine<br>and my forever? 💍</h2>
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 😜</button>
+</div>
 
-<!-- PROPOSAL -->
-<section id="proposal" class="center fade">
-    <h2>Will you be my Valentine…<br>and my forever? 💍</h2>
-    <div class="buttons">
-        <button id="yes">YES ❤️</button>
-        <button id="no">NO 😜</button>
-    </div>
-</section>
-
-<!-- CELEBRATION -->
-<section id="celebration" class="center">
-    <h1>She said YES! 🎉💖</h1>
-    <p>See you on <strong>30-Nov-2026</strong> 💍</p>
-</section>
-
-<!-- CREDITS -->
-<section id="credits" class="center">
-    <p><strong>Starring:</strong> Shalu ❤️ Nirbhay</p>
-    <p><strong>Directed by:</strong> Destiny</p>
-    <p><strong>Forever Status:</strong> Locked 🔒</p>
-</section>
+<div class="scene">
+    <h1>She said YES! 🎉</h1>
+    <p>See you on 30-Nov-2026 💍</p>
+</div>
 
 <script>
-// Fade on scroll
-const fades=document.querySelectorAll('.fade');
-const photos=document.querySelectorAll('.photo-reveal');
+const scenes=document.querySelectorAll('.scene');
+let index=0;
 
-window.addEventListener('scroll',()=>{
-  fades.forEach(f=>{
-    if(f.getBoundingClientRect().top < window.innerHeight-100){
-      f.classList.add('show');
-    }
-  });
-  photos.forEach(p=>{
-    if(p.getBoundingClientRect().top < window.innerHeight-100){
-      p.classList.add('show');
-    }
-  });
-});
-
-// Music start
+// Start music on first tap
 document.body.addEventListener('click',()=>{
-  document.getElementById('music').play();
+ document.getElementById('music').play();
 },{once:true});
 
-// NO button escape
+function nextScene(){
+ scenes[index].classList.remove('active');
+ index++;
+ if(index<scenes.length){
+   scenes[index].classList.add('active');
+ }
+}
+
+setInterval(()=>{
+ if(index<scenes.length-2){
+   nextScene();
+ }
+},6000);
+
+// NO button run
 document.getElementById('no').addEventListener('mouseover',()=>{
-  const x=Math.random()*200-100;
-  const y=Math.random()*200-100;
-  document.getElementById('no').style.transform=`translate(${x}px,${y}px)`;
+ document.getElementById('no').style.left=Math.random()*100-50+'px';
 });
 
-// YES celebration
+// YES skip to end
 document.getElementById('yes').addEventListener('click',()=>{
-  document.getElementById('proposal').style.display='none';
-  document.getElementById('celebration').style.display='flex';
-  for(let i=0;i<30;i++){
-    const h=document.createElement('div');
-    h.className='heart';
-    h.innerHTML='❤️';
-    h.style.left=Math.random()*100+'vw';
-    h.style.animationDuration=(3+Math.random()*3)+'s';
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
-  }
+ scenes[index].classList.remove('active');
+ scenes[scenes.length-1].classList.add('active');
 });
 </script>
 
